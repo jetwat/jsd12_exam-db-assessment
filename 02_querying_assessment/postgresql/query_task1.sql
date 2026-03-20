@@ -37,7 +37,7 @@
 -- FROM public.menuitems a
 -- WHERE a.category = "Side"; 
 --    ```
---    -- error: column "Side" does not exist
+--    *-- error: column "Side" does not exist*
 -- -> ใช้ Double Quotes ครอบค่าไม่ได้ เปลี่ยนเป็น Single Quotes
 -- -> ลองเขียนและรัน 
 --    ```
@@ -46,6 +46,6 @@ SELECT
     a.price AS "Menu_Price"
 FROM public.menuitems a
 WHERE a.category = 'Side'; 
---    ``` -- ผลลัพธ์โอเค
+--    ``` *-- ผลลัพธ์โอเค*
 
 
