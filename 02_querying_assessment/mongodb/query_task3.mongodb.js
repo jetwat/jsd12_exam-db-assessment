@@ -16,5 +16,24 @@
 // are involved, and what MongoDB concepts you plan to use.
 // Write in English or Thai. Do not skip this step.
 //
+// ---------------------------------------------------------------
+// ---------------------------------------------------------------
 // Your thinking:
+// อยากลองเขียนด้วย aggregation pipeline
+// โจทย์ต้องการ หา ingredients ทั้งหมดที่ยอดคงคลังมากกว่าหรือเท่ากับ 100 ชิ้น
 //
+// #### สิ่งที่ต้องการ:
+// - ฟีลด์: ingredients_name
+// - เงื่อนไข: current_stock >= 100
+//
+// #### บันทึกการทำงาน:
+// -> เข้าไปดู collection: ingredients *-- น่าจะต้องใช้ fields: name, stock_level, unit*
+//
+// -> ลองเขียนและรัน
+//    ```
+use("chrome-burger-db");
+db.ingredients.aggregate(
+  { $match: { stock_level: { $gte: 100 } } },
+  { $project: { _id: 0, supplier_id: 0 } },
+);
+//    ``` *-- ผลลัพธ์โอเค*
