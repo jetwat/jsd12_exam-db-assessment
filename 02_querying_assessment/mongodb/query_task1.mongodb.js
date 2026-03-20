@@ -16,5 +16,29 @@
 // are involved, and what MongoDB concepts you plan to use.
 // Write in English or Thai. Do not skip this step.
 //
+// ---------------------------------------------------------------
+// ---------------------------------------------------------------
 // Your thinking:
 //
+// โจทย์ต้องการ ลิสต์เมนูที่ราคาต่ำกว่า 10 ดอล
+//
+// #### สิ่งที่ต้องการ:
+// - ฟีลด์: menu_name, price
+// - เงื่อนไข: price < 10
+//
+// #### บันทึกการทำงาน:
+//
+// -> ไปดูไฟล์ที่สร้าง collections และ documents *-- ลองพยายามดูความสัมพันธ์ระหว่างแต่ละ collection แล้วโน้ตไว้ใน .excalidraw*
+// -> หาฟีลด์และคอเลคชันที่ต้องใช้ *-- น่าจะต้องใช้ feilds: name, price และ collection: menu_items *
+// -> คิดว่าต้องใช้ .find แต่ลืมวิธีการใส่ condition เลยต้องไปเปิด docs *-- น่าจะต้องใช้ {price: {$lt: 10}}*
+//
+// -> ลองเขียนและรัน
+//    ```
+//    db.menu_items.find({ price: { $lt: 10 } }, { name: 1, price: 1 });
+//    ``` *-- ไม่เจอผลลัพธ์ เพราะลืม เลือก Database ที่ต้องการใช้งานก่อน*
+//
+// -> ลองเขียนและรันใหม่
+//    ```
+use("chrome-burger-db");
+db.menu_items.find({ price: { $lt: 10 } }, { _id: 0, name: 1, price: 1 });
+//    ``` *-- ผลลัพธ์โอเค*
