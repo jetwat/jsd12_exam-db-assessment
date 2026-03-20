@@ -26,8 +26,10 @@
 -- - เงื่อนไข: ตำแหน่ง = "cook"
 -- 
 -- #### บันทึกการทำงาน:
+--
 -- -> เอาตัวอย่างข้อมูลไปวางใน /sample_db.excalidraw จะได้มองภาพรวมง่ายขึ้น
 -- -> เช็คตารางว่าต้องจอยไหม *-- public.staff อย่างเดียวพอ*
+--
 -- -> ลองเขียนและรัน 
 --    ```
 -- SELECT
@@ -35,10 +37,20 @@
 -- FROM public.staff a
 -- WHERE a.role = 'Cook'; 
 --    ``` *-- ลืมเว้นวรรค*
+--
 -- -> ลองเขียนและรัน concat แทน 
 --    ```
+-- SELECT
+--     CONCAT(a.first_name,' ',a.last_name) AS "Full_Name"
+-- FROM public.staff a
+-- WHERE a.role = 'Cook'; 
+--    ``` *-- เพิ่มรหัสพนักงานดีกว่า เผื่อชื่อซ้ำ*
+--
+-- -> ลองเขียนและรัน  
+--    ```
 SELECT
+    a.staff_id AS "รหัสพนักงาน",
     CONCAT(a.first_name,' ',a.last_name) AS "Full_Name"
 FROM public.staff a
 WHERE a.role = 'Cook'; 
---    ``` -- ผลลัพธ์โอเค
+--    ``` *-- ผลลัพธ์โอเค*
